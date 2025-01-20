@@ -12,7 +12,39 @@ import Typography from "@mui/material/Typography";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AddIcon from "@mui/icons-material/Add";
 import Modal from "../modal/Modal";
-import { usestatevalue } from "../../context";
+
+import Yourprofile from "../yourprofile/Yourprofile";
+import Frontend from "../frontend/Frontend";
+import { useStateValue } from "../../context";
+
+const datas = [
+  {
+    id: 1,
+    name: "Frontend",
+  },
+  {
+    id: 2,
+    name: "Backend",
+  },
+  {
+    id: 3,
+
+    name: "Mobile",
+  },
+  {
+    id: 4,
+
+    name: "Full Stack",
+  },
+  {
+    id: "5",
+    name: "Data Science",
+  },
+  {
+    id: "6",
+    name: "Design",
+  },
+];
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -51,15 +83,22 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 function Sidebar() {
-  const { popal, setPopal } = usestatevalue();
-  const [expanded, setExpanded] = React.useState("panel1");
+  const { popal, setPopal } = useStateValue();
+  const [expanded, setExpanded] = React.useState(false);
+  const { show, setShow } = useStateValue();
+  const { fronet, setFronet } = useStateValue();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
   return (
     <div className="sidebar">
-      <div className="sidebar_item">
+      <div
+        className="sidebar_item"
+        // onClick={() => {
+        //   setShow(!show);
+        // }}
+      >
         <PersonIcon />
         Profile
       </div>
@@ -69,7 +108,11 @@ function Sidebar() {
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+        <AccordionSummary
+          aria-controls="panel1d-content"
+          id="panel1d-header"
+          style={{ backgroundColor: "rgb(241, 238, 238)" }}
+        >
           <Typography
             style={{
               display: "flex",
@@ -82,14 +125,36 @@ function Sidebar() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography
-            onClick={() => {
-              setPopal(!popal);
-            }}
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <AddIcon /> Create Group
-          </Typography>
+          <div className="container_typografy1">
+            <Typography
+              onClick={() => {
+                setPopal(!popal);
+              }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "rgb(241, 238, 238)",
+                height: "40px",
+              }}
+            >
+              <AddIcon /> Create Group
+            </Typography>
+            <div className="container_typografy">
+              {datas.map((item, inx) => (
+                <div className="typografy" key={inx}>
+                  <Typography
+                    onClick={() => {
+                      setFronet(!fronet);
+                      setShow(!show);
+                    }}
+                    className="typografy_item"
+                  >
+                    {item.name}
+                  </Typography>
+                </div>
+              ))}
+            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
 
