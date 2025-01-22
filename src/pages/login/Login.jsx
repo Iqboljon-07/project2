@@ -22,7 +22,14 @@ const validationSchema = Yup.object({
     .matches(/^(?=.*[A-Za-z])/, "Parol kamida bitta Harf qatnashsin")
     .required("Maydon bo'sh bo'lmasin"),
 });
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
+>>>>>>> 0b90b511f3810e7a0f57aa41290b27822a0b55b9
 function Login() {
   const { password, setPassword } = useStateValue();
   const navigate = useNavigate();

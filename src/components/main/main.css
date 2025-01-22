@@ -4,8 +4,18 @@ main{
     width:calc(100% - 250px );
     height: auto;
   
+<<<<<<< HEAD
     background-image: url("https://i.pinimg.com/736x/d6/09/c9/d609c9076e4f5d18da92ceb6dd6ab26a.jpg");
     background-size:cover;
+=======
+<<<<<<< HEAD
+    background-image: url("https://i.pinimg.com/736x/d6/09/c9/d609c9076e4f5d18da92ceb6dd6ab26a.jpg");
+    background-size:cover;
+=======
+    background-image: url("../../assets/mandarin.jpg");
+    background-size: cover;
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
+>>>>>>> 0b90b511f3810e7a0f57aa41290b27822a0b55b9
 padding:40px;
 margin-top: 70px;
 
