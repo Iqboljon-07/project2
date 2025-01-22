@@ -6,6 +6,7 @@ import "./style.css";
 import { useStateValue } from "../../context";
 import { toast } from "react-toastify";
 import axios from "axios";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 
 function Modal() {
@@ -18,6 +19,17 @@ function Modal() {
     e.preventDefault();
     let user = {
       name: name.current.value,
+=======
+
+function Modal() {
+  const { setPopal, popal } = useStateValue();
+  const username = useRef(null);
+  const password = useRef(null);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let user = {
+      username: username.current.value,
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
       password: password.current.value,
     };
     console.log(user);
@@ -27,12 +39,17 @@ function Modal() {
         "https://nt-shopping-list.onrender.com/api/groups",
 
         {
+<<<<<<< HEAD
           name: user.name,
+=======
+          username: user.username,
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
           password: user.password,
         },
 
         {
           headers: {
+<<<<<<< HEAD
             "x-auth-token": `${localStorage.getItem("token")}`,
           },
         }
@@ -54,6 +71,21 @@ function Modal() {
     } catch (error) {
       toast.error("Invalid credentials");
       console.error("Error", error.response.data || error.message);
+=======
+            "Content-Type": "application/json",
+            "x-auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        toast.success("Signed in successfully");
+        localStorage.setItem("token", response.data.token);
+      }
+    } catch (error) {
+      toast.error("Invalid credentials");
+      console.error(error);
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
     }
   };
 
@@ -68,13 +100,18 @@ function Modal() {
       </div>
 
       <form onSubmit={onSubmit} action="">
+<<<<<<< HEAD
         <input ref={name} type="text" placeholder="Group name" />
+=======
+        <input ref={username} type="text" placeholder="Group name" />
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
         <input ref={password} type="password" placeholder="Group password" />
         <Stack spacing={2} direction="row">
           <Button type="submit" style={{ width: "100px" }} variant="contained">
             Create
           </Button>
           <Button
+            type="submit"
             onClick={() => setPopal(false)}
             style={{ width: "100px" }}
             variant="outlined"

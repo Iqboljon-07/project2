@@ -107,9 +107,14 @@ function Navbar() {
           </Box>
         </div>
       </nav>
+<<<<<<< HEAD
       {/* 
       {search ? <Search /> : setJoin(false)} */}
       {search && <Search />}
+=======
+
+      {search ? <Search /> : setJoin(false)}
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
     </>
   );
 }

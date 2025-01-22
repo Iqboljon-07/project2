@@ -14,10 +14,44 @@ import AddIcon from "@mui/icons-material/Add";
 import Modal from "../modal/Modal";
 
 import Yourprofile from "../yourprofile/Yourprofile";
+<<<<<<< HEAD
 
 import { useStateValue } from "../../context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+=======
+import Frontend from "../frontend/Frontend";
+import { useStateValue } from "../../context";
+
+const datas = [
+  {
+    id: 1,
+    name: "Frontend",
+  },
+  {
+    id: 2,
+    name: "Backend",
+  },
+  {
+    id: 3,
+
+    name: "Mobile",
+  },
+  {
+    id: 4,
+
+    name: "Full Stack",
+  },
+  {
+    id: "5",
+    name: "Data Science",
+  },
+  {
+    id: "6",
+    name: "Design",
+  },
+];
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -57,11 +91,17 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 function Sidebar() {
   const { popal, setPopal } = useStateValue();
+<<<<<<< HEAD
   const [expanded, setExpanded] = React.useState("panel1");
   const { show, setShow } = useStateValue();
   const { fronet, setFronet } = useStateValue();
   const { groups, setGroups } = useStateValue();
   const { creatgroup, setCreatGroup } = useStateValue();
+=======
+  const [expanded, setExpanded] = React.useState(false);
+  const { show, setShow } = useStateValue();
+  const { fronet, setFronet } = useStateValue();
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
 
   const navigate = useNavigate();
   useEffect(
@@ -96,11 +136,14 @@ function Sidebar() {
         // onClick={() => {
         //   setShow(!show);
         // }}
+<<<<<<< HEAD
         onClick={() => {
           setShow(true);
           navigate("/");
           setPopal(false);
         }}
+=======
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
       >
         <PersonIcon />
         Profile
@@ -143,6 +186,7 @@ function Sidebar() {
               <AddIcon /> Create Group
             </Typography>
             <div className="container_typografy">
+<<<<<<< HEAD
               {groups?.map((item, inx) => (
                 <div className="typografy" key={inx}>
                   <Typography
@@ -150,6 +194,14 @@ function Sidebar() {
                       navigate(`/detail/${item._id}`);
                       setShow(false);
                       setPopal(false);
+=======
+              {datas.map((item, inx) => (
+                <div className="typografy" key={inx}>
+                  <Typography
+                    onClick={() => {
+                      setFronet(!fronet);
+                      setShow(!show);
+>>>>>>> 14247cc0ad831e2924c521b123c360b99f6d9ea4
                     }}
                     className="typografy_item"
                   >
